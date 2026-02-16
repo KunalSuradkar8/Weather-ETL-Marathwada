@@ -14,7 +14,6 @@ def run_pipeline():
         return
 
     # कॉन्फिग मधून माहिती मिळवा
-    # लक्ष द्या: 'locations' ही एक लिस्ट आहे
     locations_list = config.get('locations', [])
     db_path = config['database']['name']
     csv_path = config['database']['csv_name']
@@ -28,7 +27,7 @@ def run_pipeline():
     # लूप सुरू होतोय - इथेच प्रत्येक शहराची माहिती वेगळी होईल
     for loc in locations_list:
         try:
-            # 'loc' हा आता एक डिक्शनरी आहे, जसे: {'city': 'Sambhajinagar', 'lat': 19.87, ...}
+            # 'loc' हा आता एक डिक्शनरी आहे
             city = loc['city']
             lat = loc['lat']
             lon = loc['lon']
