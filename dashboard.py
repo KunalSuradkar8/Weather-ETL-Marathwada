@@ -43,7 +43,7 @@ if not df.empty:
     # --- डेटा प्रीव्यू (Data Preview) ---
     st.subheader("📊 सध्याचा डेटा (Recent Data)")
     st.dataframe(df.tail(10))  # शेवटच्या 10 नोंदी दाखवा
-
+    st.write("Column Names:", df.columns.tolist())
     # --- मेट्रिक्स (Metrics) ---
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -64,7 +64,14 @@ if not df.empty:
         # सर्वात अलीकडील डेटा घेण्यासाठी
         latest_data = df.drop_duplicates(subset=['city'], keep='last')
         st.bar_chart(latest_data.set_index('city')['temperature'])
-
+    # --- नकाशा (Map) ---
+    st.subheader("🗺️ हवामान नकाशा")
+    if 'lat' in df.columns and 'lon' in df.columns:
+        # फक्त शेवटचा डेटा दाखवण्यासाठी
+        latest_data = df.drop_duplicates(subset=['city'], keep='last')
+        st.map(latest_data)
+    else:
+        st.warning("नकाशा दाखवण्यासाठी lat/lon डेटा उपलब्ध नाही.")
     # ह्युमिडिटी लाईन चार्ट
     if 'timestamp' in df.columns and 'humidity' in df.columns:
         st.subheader("💧 आर्द्रता (Humidity) ट्रेंड")

@@ -38,7 +38,7 @@ def run_pipeline():
             raw_data = get_weather_data(lat, lon)
 
             # २. डेटा स्वच्छ करणे
-            clean_df = clean_weather_data(raw_data, city)
+            clean_df = clean_weather_data(raw_data, city, lat, lon)
 
             # ३. डेटा सेव्ह करणे
             save_to_sqlite(clean_df, db_path)
