@@ -1,0 +1,5 @@
+requests==2.31.0
+pandas>=3.0.0
+sqlalchemy==2.0.20
+pyyaml==6.0.1
+lxml==4.9.3

@@ -1,0 +1,15 @@
+# Weather Project Configurations
+locations:
+  - {city: "Sambhajinagar", lat: 19.8762, lon: 75.3433}
+  - {city: "Jalna", lat: 19.8410, lon: 75.8864}
+  - {city: "Beed", lat: 18.9891, lon: 75.7601}
+  - {city: "Latur", lat: 18.4088, lon: 76.5604}
+  - {city: "Nanded", lat: 19.1383, lon: 77.3210}
+  - {city: "Parbhani", lat: 19.2618, lon: 76.7754}
+
+database:
+  name: "data/weather_data.db"
+  csv_name: "data/marathwada_weather.csv"
+
+file_paths:
+  log_file: "logs/pipeline.log"
